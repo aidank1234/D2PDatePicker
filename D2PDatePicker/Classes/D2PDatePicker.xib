@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-ExtraBold.ttf">
+            <string>Montserrat-ExtraBold</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="D2PDatePicker" customModule="D2PDatePicker" customModuleProvider="target">
             <connections>
@@ -37,7 +49,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2h-gq-dy2">
-                                    <rect key="frame" x="8" y="18" width="15" height="15"/>
+                                    <rect key="frame" x="8" y="17.5" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="YBO-YQ-UbQ"/>
                                         <constraint firstAttribute="width" constant="15" id="ncC-lb-qgz"/>
@@ -55,14 +67,14 @@
                                     <state key="normal" image="next"/>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EX4-ri-KIo" customClass="MonthView" customModule="D2PDatePicker" customModuleProvider="target">
-                                    <rect key="frame" x="38" y="10" width="74.5" height="30"/>
+                                    <rect key="frame" x="34.5" y="10.5" width="81.5" height="29.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyG-MF-MTF">
-                                            <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="29.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZP-wj-FSt">
-                                                    <rect key="frame" x="0.5" y="0.0" width="74" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="29.5"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -114,14 +126,14 @@
                             <rect key="frame" x="0.0" y="10" width="150" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgd-aB-d0c" customClass="YearView" customModule="D2PDatePicker" customModuleProvider="target">
-                                    <rect key="frame" x="53" y="14.5" width="45" height="21"/>
+                                    <rect key="frame" x="52" y="14.5" width="46.5" height="21"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-gL-5GZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="21"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhV-6d-xPl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="46.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -148,7 +160,7 @@
                                     </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qo6-W2-0qv">
-                                    <rect key="frame" x="15" y="17" width="15" height="15"/>
+                                    <rect key="frame" x="15" y="17.5" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="ckO-rn-kw1"/>
                                         <constraint firstAttribute="height" constant="15" id="ioA-Qt-cFG"/>
@@ -157,7 +169,7 @@
                                     <state key="normal" image="back"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C98-QN-dkH">
-                                    <rect key="frame" x="120" y="17" width="15" height="15"/>
+                                    <rect key="frame" x="120" y="17.5" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="b4o-Xg-rak"/>
                                         <constraint firstAttribute="width" constant="15" id="iDK-rD-vhK"/>
@@ -187,41 +199,41 @@
                     </constraints>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1q2-no-h8D">
-                    <rect key="frame" x="0.0" y="50" width="150" height="100"/>
+                    <rect key="frame" x="0.0" y="50" width="150" height="106"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-mK-Nac" customClass="DayView" customModule="D2PDatePicker" customModuleProvider="target">
-                            <rect key="frame" x="31.5" y="14" width="87.5" height="72"/>
+                            <rect key="frame" x="31.5" y="14.5" width="87" height="83"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8y-c7-hy8">
-                                    <rect key="frame" x="0.0" y="0.0" width="87.5" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="87" height="91"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0L-vI-4Jw">
-                                            <rect key="frame" x="0.0" y="0.0" width="87.5" height="48"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeekDay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Va-2V-uPw">
+                                            <rect key="frame" x="0.0" y="63" width="87" height="22"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                            <color key="textColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeekDay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Va-2V-uPw">
-                                            <rect key="frame" x="0.0" y="48" width="87.5" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <color key="textColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0L-vI-4Jw">
+                                            <rect key="frame" x="0.0" y="12" width="87" height="49"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat" pointSize="40"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="5Va-2V-uPw" firstAttribute="leading" secondItem="N8y-c7-hy8" secondAttribute="leading" id="0iN-Xp-nzh"/>
-                                        <constraint firstItem="W0L-vI-4Jw" firstAttribute="top" secondItem="N8y-c7-hy8" secondAttribute="top" id="3HA-bS-X4C"/>
+                                        <constraint firstItem="W0L-vI-4Jw" firstAttribute="top" secondItem="N8y-c7-hy8" secondAttribute="top" constant="12" id="3HA-bS-X4C"/>
                                         <constraint firstItem="W0L-vI-4Jw" firstAttribute="leading" secondItem="N8y-c7-hy8" secondAttribute="leading" id="OXQ-ZE-Twb"/>
-                                        <constraint firstAttribute="bottom" secondItem="5Va-2V-uPw" secondAttribute="bottom" id="TLV-S0-7EV"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Va-2V-uPw" secondAttribute="bottom" constant="6" id="TLV-S0-7EV"/>
                                         <constraint firstAttribute="trailing" secondItem="5Va-2V-uPw" secondAttribute="trailing" id="UqP-1l-SMs"/>
-                                        <constraint firstItem="5Va-2V-uPw" firstAttribute="top" secondItem="W0L-vI-4Jw" secondAttribute="bottom" id="aQj-Ck-mab"/>
+                                        <constraint firstItem="5Va-2V-uPw" firstAttribute="top" secondItem="W0L-vI-4Jw" secondAttribute="bottom" constant="2" id="aQj-Ck-mab"/>
                                         <constraint firstAttribute="trailing" secondItem="W0L-vI-4Jw" secondAttribute="trailing" id="e8Q-Yw-xKX"/>
                                     </constraints>
                                 </view>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="N8y-c7-hy8" firstAttribute="leading" secondItem="NhQ-mK-Nac" secondAttribute="leading" id="2bj-fE-yeY"/>
-                                <constraint firstAttribute="bottom" secondItem="N8y-c7-hy8" secondAttribute="bottom" id="7i7-hK-2aS"/>
+                                <constraint firstAttribute="bottom" secondItem="N8y-c7-hy8" secondAttribute="bottom" constant="-8" id="7i7-hK-2aS"/>
                                 <constraint firstItem="N8y-c7-hy8" firstAttribute="top" secondItem="NhQ-mK-Nac" secondAttribute="top" id="Tm3-oa-Fps"/>
                                 <constraint firstAttribute="trailing" secondItem="N8y-c7-hy8" secondAttribute="trailing" id="VTP-xm-vla"/>
                             </constraints>
@@ -253,9 +265,9 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="BXf-gO-JJH" firstAttribute="leading" secondItem="1q2-no-h8D" secondAttribute="leading" constant="8" id="5K1-Fk-2aK"/>
-                        <constraint firstItem="NhQ-mK-Nac" firstAttribute="centerY" secondItem="1q2-no-h8D" secondAttribute="centerY" id="5Lk-30-0ec"/>
-                        <constraint firstItem="9QX-PR-vns" firstAttribute="centerY" secondItem="1q2-no-h8D" secondAttribute="centerY" id="FiJ-kq-jqo"/>
-                        <constraint firstItem="BXf-gO-JJH" firstAttribute="centerY" secondItem="1q2-no-h8D" secondAttribute="centerY" id="TlF-ZE-6U3"/>
+                        <constraint firstItem="NhQ-mK-Nac" firstAttribute="centerY" secondItem="1q2-no-h8D" secondAttribute="centerY" constant="3" id="5Lk-30-0ec"/>
+                        <constraint firstItem="9QX-PR-vns" firstAttribute="centerY" secondItem="1q2-no-h8D" secondAttribute="centerY" constant="-3" id="FiJ-kq-jqo"/>
+                        <constraint firstItem="BXf-gO-JJH" firstAttribute="centerY" secondItem="1q2-no-h8D" secondAttribute="centerY" constant="-3" id="TlF-ZE-6U3"/>
                         <constraint firstAttribute="trailing" secondItem="9QX-PR-vns" secondAttribute="trailing" constant="8" id="aUT-vX-rv5"/>
                         <constraint firstItem="NhQ-mK-Nac" firstAttribute="centerX" secondItem="1q2-no-h8D" secondAttribute="centerX" id="nuB-8Y-edC"/>
                     </constraints>
@@ -266,7 +278,7 @@
                 <constraint firstAttribute="bottom" secondItem="KbX-hC-u9v" secondAttribute="bottom" id="2z7-RR-QiB"/>
                 <constraint firstAttribute="trailing" secondItem="Nzw-Bk-DiE" secondAttribute="trailing" id="6vd-CN-hxb"/>
                 <constraint firstAttribute="trailing" secondItem="1q2-no-h8D" secondAttribute="trailing" id="AgI-en-Pnd"/>
-                <constraint firstItem="KbX-hC-u9v" firstAttribute="top" secondItem="1q2-no-h8D" secondAttribute="bottom" constant="-10" id="C4n-cd-smt"/>
+                <constraint firstItem="KbX-hC-u9v" firstAttribute="top" secondItem="1q2-no-h8D" secondAttribute="bottom" constant="-16" id="C4n-cd-smt"/>
                 <constraint firstItem="Nzw-Bk-DiE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="azV-gB-D0G"/>
                 <constraint firstItem="1q2-no-h8D" firstAttribute="top" secondItem="Nzw-Bk-DiE" secondAttribute="bottom" constant="-10" id="hZl-9U-3Ay"/>
                 <constraint firstItem="Nzw-Bk-DiE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="has-hz-u03"/>
@@ -278,7 +290,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-45" y="220"/>
+            <point key="canvasLocation" x="-46.399999999999999" y="219.49025487256372"/>
         </view>
     </objects>
     <resources>

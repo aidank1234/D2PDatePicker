@@ -40,6 +40,9 @@ public class D2PDatePicker: UIView {
         }
     }
     
+    private var minDate: Date! = Date()
+    private var maxDate: Date! = Date()
+    
     
     required public init?(coder aDecoder: NSCoder) {   // 2 - storyboard initializer
         super.init(coder: aDecoder)
@@ -78,12 +81,10 @@ public class D2PDatePicker: UIView {
         
         
         // middleView Border
-        self.middleView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
         self.middleView.layer.borderWidth = 1.0
         
         // bottomView Rounded Corner & border
         self.bottomView.layer.cornerRadius = 10.0
-        self.bottomView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
         self.bottomView.layer.borderWidth = 1.0
         
         
@@ -114,8 +115,41 @@ public class D2PDatePicker: UIView {
     }
     
     public func set(toDate date: Date) {
-        setLabel(toDate: date)
-        self.selectedDate = date
+        if date <= maxDate && date <= minDate {
+            setLabel(toDate: date)
+            self.selectedDate = date
+        }
+    }
+    
+    public func setMaxAndMinDates(minDate: Date, maxDate: Date) {
+        self.minDate = minDate
+        self.maxDate = maxDate
+        
+        let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+        if oneMonthBackFromChange < minDate {
+            monthPrevBtn.isHidden = true
+        }
+        let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+        if oneDayBackFromChange < minDate {
+            dayPrevBtn.isHidden = true
+        }
+        let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+        if oneYearBackFromChange < minDate {
+            yearPrevBtn.isHidden = true
+        }
+        
+        let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+        if oneMonthForwardFromChange > maxDate {
+            monthNextBtn.isHidden = true
+        }
+        let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+        if oneDayForwardFromChange > maxDate {
+            dayNextBtn.isHidden = true
+        }
+        let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+        if oneYearForwardFromChange > maxDate {
+            yearNextBtn.isHidden = true
+        }
     }
     
     private func setLabel(toDate date: Date) {
@@ -137,40 +171,208 @@ public class D2PDatePicker: UIView {
     @objc private func changeDate(btn: UIButton) {
         
         if btn.tag == 0 {
-            
-            selectedDate = self.monthView.anim(direction: .backward, date: selectedDate)
-            _ = self.dayView.anim(direction: .identity, date: selectedDate)
-            _ = self.yearView.anim(direction: .identity, date: selectedDate)
-        
+            let oneMonthBack = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+            if oneMonthBack >= minDate {
+                selectedDate = self.monthView.anim(direction: .backward, date: selectedDate)
+                _ = self.dayView.anim(direction: .identity, date: selectedDate)
+                _ = self.yearView.anim(direction: .identity, date: selectedDate)
+                
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                if oneMonthBackFromChange < minDate {
+                    monthPrevBtn.isHidden = true
+                }
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                if oneDayBackFromChange < minDate {
+                    dayPrevBtn.isHidden = true
+                }
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                if oneYearBackFromChange < minDate {
+                    yearPrevBtn.isHidden = true
+                }
+                
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                if oneMonthForwardFromChange <= maxDate {
+                    monthNextBtn.isHidden = false
+                }
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                if oneDayForwardFromChange <= maxDate {
+                    dayNextBtn.isHidden = false
+                }
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                if oneYearForwardFromChange <= maxDate {
+                    yearNextBtn.isHidden = false
+                }
+            }
         } else if btn.tag == 1 {
-            
-            selectedDate =  self.monthView.anim(direction: .forward, date: selectedDate)
-            _ = self.dayView.anim(direction: .identity, date: selectedDate)
-            _ = self.yearView.anim(direction: .identity, date: selectedDate)
+            let oneMonthForward = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+            if oneMonthForward <= maxDate {
+                selectedDate =  self.monthView.anim(direction: .forward, date: selectedDate)
+                _ = self.dayView.anim(direction: .identity, date: selectedDate)
+                _ = self.yearView.anim(direction: .identity, date: selectedDate)
+                
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                if oneMonthBackFromChange >= minDate {
+                    monthPrevBtn.isHidden = false
+                }
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                if oneDayBackFromChange >= minDate {
+                    dayPrevBtn.isHidden = false
+                }
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                if oneYearBackFromChange >= minDate {
+                    yearPrevBtn.isHidden = false
+                }
+                
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                if oneMonthForwardFromChange > maxDate {
+                    monthNextBtn.isHidden = true
+                }
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                if oneDayForwardFromChange > maxDate {
+                    dayNextBtn.isHidden = true
+                }
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                if oneYearForwardFromChange > maxDate {
+                    yearNextBtn.isHidden = true
+                }
+                
+            }
             
         } else if btn.tag == 2 {
-            
-            selectedDate = self.dayView.anim(direction: .backward, date: selectedDate)
-            _ = self.monthView.anim(direction: .identity, date: selectedDate)
-            _ = self.yearView.anim(direction: .identity, date: selectedDate)
+            let oneDayBack = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+            if oneDayBack >= minDate {
+                selectedDate = self.dayView.anim(direction: .backward, date: selectedDate)
+                _ = self.monthView.anim(direction: .identity, date: selectedDate)
+                _ = self.yearView.anim(direction: .identity, date: selectedDate)
+                
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                if oneMonthBackFromChange < minDate {
+                    monthPrevBtn.isHidden = true
+                }
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                if oneDayBackFromChange < minDate {
+                    dayPrevBtn.isHidden = true
+                }
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                if oneYearBackFromChange < minDate {
+                    yearPrevBtn.isHidden = true
+                }
+                
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                if oneMonthForwardFromChange <= maxDate {
+                    monthNextBtn.isHidden = false
+                }
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                if oneDayForwardFromChange <= maxDate {
+                    dayNextBtn.isHidden = false
+                }
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                if oneYearForwardFromChange <= maxDate {
+                    yearNextBtn.isHidden = false
+                }
+            }
             
         } else if btn.tag == 3 {
-            
-            selectedDate = self.dayView.anim(direction: .forward, date: selectedDate)
-            _ = self.monthView.anim(direction: .identity, date: selectedDate)
-            _ = self.yearView.anim(direction: .identity, date: selectedDate)
+            let oneDayForward = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+            if oneDayForward <= maxDate {
+                selectedDate = self.dayView.anim(direction: .forward, date: selectedDate)
+                _ = self.monthView.anim(direction: .identity, date: selectedDate)
+                _ = self.yearView.anim(direction: .identity, date: selectedDate)
+                
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                if oneMonthBackFromChange >= minDate {
+                    monthPrevBtn.isHidden = false
+                }
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                if oneDayBackFromChange >= minDate {
+                    dayPrevBtn.isHidden = false
+                }
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                if oneYearBackFromChange >= minDate {
+                    yearPrevBtn.isHidden = false
+                }
+                
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                if oneMonthForwardFromChange > maxDate {
+                    monthNextBtn.isHidden = true
+                }
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                if oneDayForwardFromChange > maxDate {
+                    dayNextBtn.isHidden = true
+                }
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                if oneYearForwardFromChange > maxDate {
+                    yearNextBtn.isHidden = true
+                }
+            }
             
         } else if btn.tag == 4 {
-            
-            selectedDate = self.yearView.anim(direction: .backward, date: selectedDate)
-            _ = self.dayView.anim(direction: .identity, date: selectedDate)
-            _ = self.monthView.anim(direction: .identity, date: selectedDate)
+            let oneYearBack = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+            if oneYearBack >= minDate {
+                selectedDate = self.yearView.anim(direction: .backward, date: selectedDate)
+                _ = self.dayView.anim(direction: .identity, date: selectedDate)
+                _ = self.monthView.anim(direction: .identity, date: selectedDate)
+                
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                if oneMonthBackFromChange < minDate {
+                    monthPrevBtn.isHidden = true
+                }
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                if oneDayBackFromChange < minDate {
+                    dayPrevBtn.isHidden = true
+                }
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                if oneYearBackFromChange < minDate {
+                    yearPrevBtn.isHidden = true
+                }
+                
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                if oneMonthForwardFromChange <= maxDate {
+                    monthNextBtn.isHidden = false
+                }
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                if oneDayForwardFromChange <= maxDate {
+                    dayNextBtn.isHidden = false
+                }
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                if oneYearForwardFromChange <= maxDate {
+                    yearNextBtn.isHidden = false
+                }
+            }
             
         } else if btn.tag == 5 {
-            
-            selectedDate = self.yearView.anim(direction: .forward, date: selectedDate)
-            _ = self.dayView.anim(direction: .identity, date: selectedDate)
-            _ = self.monthView.anim(direction: .identity, date: selectedDate)
+            let oneYearForward = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+            if oneYearForward <= maxDate {
+                selectedDate = self.yearView.anim(direction: .forward, date: selectedDate)
+                _ = self.dayView.anim(direction: .identity, date: selectedDate)
+                _ = self.monthView.anim(direction: .identity, date: selectedDate)
+                
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                if oneMonthBackFromChange >= minDate {
+                    monthPrevBtn.isHidden = false
+                }
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                if oneDayBackFromChange >= minDate {
+                    dayPrevBtn.isHidden = false
+                }
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                if oneYearBackFromChange >= minDate {
+                    yearPrevBtn.isHidden = false
+                }
+                
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                if oneMonthForwardFromChange > maxDate {
+                    monthNextBtn.isHidden = true
+                }
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                if oneDayForwardFromChange > maxDate {
+                    dayNextBtn.isHidden = true
+                }
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                if oneYearForwardFromChange > maxDate {
+                    yearNextBtn.isHidden = true
+                }
+            }
             
         }
         
