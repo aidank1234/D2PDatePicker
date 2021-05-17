@@ -37,23 +37,23 @@ class AnimateView: UIView {
             
             isAnimating = true
             
-//            // move the contentview depending the direction
-//            if direction == .backward {
-//                self.contentView.transform = .init(translationX: 0, y: self.frame.height)
-//            } else if direction == .forward {
-//                self.contentView.transform = .init(translationX: 0, y: -self.frame.height)
-//            }
+            // move the contentview depending the direction
+            if direction == .backward {
+                self.contentView.transform = .init(translationX: 0, y: self.frame.height)
+            } else if direction == .forward {
+                self.contentView.transform = .init(translationX: 0, y: -self.frame.height)
+            }
             
             
             
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
                 
                 
-//                if direction == .backward {
-//                    self.transform = .init(translationX: 0, y: -self.frame.height)
-//                } else if direction == .forward {
-//                    self.transform = .init(translationX: 0, y: self.frame.height)
-//                }
+                if direction == .backward {
+                    self.transform = .init(translationX: 0, y: -self.frame.height)
+                } else if direction == .forward {
+                    self.transform = .init(translationX: 0, y: self.frame.height)
+                }
                 
                 self.imageView.alpha = 0.0
                 self.contentView.alpha = 1.0

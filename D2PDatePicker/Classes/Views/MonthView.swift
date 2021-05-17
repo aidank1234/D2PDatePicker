@@ -31,25 +31,8 @@ class MonthView: AnimateView {
         
         // Init animation
         
-        
-        if !isAnimating {
-            // take a screenshot of the uivew and then show
-            self.imageView.image = self.contentView.takeScreenshot()
-            self.imageView.alpha = 1.0
-            self.imageView.isHidden = false
-            
-            // hide the contentview and move it
-            self.contentView.alpha = 0.0
-            self.monthLabel.text = dateFormatter.string(from: newDate)
-            
-            super.animate(direction: direction)
-            
-            return newDate
-            
-        }
-        
-        
-        return date
+        self.monthLabel.text = dateFormatter.string(from: newDate)
+        return newDate
     }
     
     

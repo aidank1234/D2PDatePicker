@@ -35,28 +35,9 @@ class DayView: AnimateView {
         
         // Init animation
         
-        
-        if !isAnimating {
-            
-            // take a screenshot of the uivew and then show
-            self.imageView.image = self.contentView.takeScreenshot()
-            self.imageView.alpha = 1.0
-            self.imageView.isHidden = false
-            
-            // hide the contentview and move it
-            self.contentView.alpha = 0.0
-            self.dayLabel.text = dayString
-            self.weekDayLabel.text = weekDayString
-            
-            super.animate(direction: direction)
-            
-            
-            return newDate
-            
-        }
-        
-        
-        return date
+        self.dayLabel.text = dayString
+        self.weekDayLabel.text = weekDayString
+        return newDate
     }
     
 
