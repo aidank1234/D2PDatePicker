@@ -27,7 +27,7 @@ class AnimateView: UIView {
         self.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layoutAttachAll(to: self)
-        self.sendSubview(toBack: imageView)
+        self.sendSubviewToBack(imageView)
         imageView.isHidden = true
     }
     
