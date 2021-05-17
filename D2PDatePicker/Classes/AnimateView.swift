@@ -37,12 +37,12 @@ class AnimateView: UIView {
             
             isAnimating = true
             
-            // move the contentview depending the direction
-            if direction == .backward {
-                self.contentView.transform = .init(translationX: 0, y: self.frame.height)
-            } else if direction == .forward {
-                self.contentView.transform = .init(translationX: 0, y: -self.frame.height)
-            }
+//            // move the contentview depending the direction
+//            if direction == .backward {
+//                self.contentView.transform = .init(translationX: 0, y: self.frame.height)
+//            } else if direction == .forward {
+//                self.contentView.transform = .init(translationX: 0, y: -self.frame.height)
+//            }
             
             
             

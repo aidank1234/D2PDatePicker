@@ -245,15 +245,15 @@ public class D2PDatePicker: UIView {
                 _ = self.monthView.anim(direction: .identity, date: selectedDate)
                 _ = self.yearView.anim(direction: .identity, date: selectedDate)
                 
-                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: oneDayBack) ?? Date()
                 if oneMonthBackFromChange < minDate {
                     monthPrevBtn.isHidden = true
                 }
-                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: oneDayBack) ?? Date()
                 if oneDayBackFromChange < minDate {
                     dayPrevBtn.isHidden = true
                 }
-                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: oneDayBack) ?? Date()
                 if oneYearBackFromChange < minDate {
                     yearPrevBtn.isHidden = true
                 }
