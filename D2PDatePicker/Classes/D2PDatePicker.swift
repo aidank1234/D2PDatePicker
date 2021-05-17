@@ -82,10 +82,12 @@ public class D2PDatePicker: UIView {
         
         // middleView Border
         self.middleView.layer.borderWidth = 1.0
+        self.middleView.layer.borderColor = UIColor.AppColors.normalGreen.cgColor
         
         // bottomView Rounded Corner & border
         self.bottomView.layer.cornerRadius = 10.0
         self.bottomView.layer.borderWidth = 1.0
+        self.bottomView.layer.borderColor = UIColor.AppColors.normalGreen.cgColor
         
         
         
@@ -115,10 +117,8 @@ public class D2PDatePicker: UIView {
     }
     
     public func set(toDate date: Date) {
-        if date <= maxDate && date <= minDate {
-            setLabel(toDate: date)
-            self.selectedDate = date
-        }
+        setLabel(toDate: date)
+        self.selectedDate = date
     }
     
     public func setMaxAndMinDates(minDate: Date, maxDate: Date) {
