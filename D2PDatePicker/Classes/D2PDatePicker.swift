@@ -292,15 +292,15 @@ public class D2PDatePicker: UIView {
                     yearPrevBtn.isHidden = false
                 }
                 
-                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: oneDayForward) ?? Date()
                 if oneMonthForwardFromChange > maxDate {
                     monthNextBtn.isHidden = true
                 }
-                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: oneDayForward) ?? Date()
                 if oneDayForwardFromChange > maxDate {
                     dayNextBtn.isHidden = true
                 }
-                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: oneDayForward) ?? Date()
                 if oneYearForwardFromChange > maxDate {
                     yearNextBtn.isHidden = true
                 }
@@ -313,15 +313,15 @@ public class D2PDatePicker: UIView {
                 _ = self.dayView.anim(direction: .identity, date: selectedDate)
                 _ = self.monthView.anim(direction: .identity, date: selectedDate)
                 
-                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate) ?? Date()
+                let oneMonthBackFromChange = Calendar.current.date(byAdding: .month, value: -1, to: oneYearBack) ?? Date()
                 if oneMonthBackFromChange < minDate {
                     monthPrevBtn.isHidden = true
                 }
-                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? Date()
+                let oneDayBackFromChange = Calendar.current.date(byAdding: .day, value: -1, to: oneYearBack) ?? Date()
                 if oneDayBackFromChange < minDate {
                     dayPrevBtn.isHidden = true
                 }
-                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate) ?? Date()
+                let oneYearBackFromChange = Calendar.current.date(byAdding: .year, value: -1, to: oneYearBack) ?? Date()
                 if oneYearBackFromChange < minDate {
                     yearPrevBtn.isHidden = true
                 }
@@ -360,15 +360,15 @@ public class D2PDatePicker: UIView {
                     yearPrevBtn.isHidden = false
                 }
                 
-                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate) ?? Date()
+                let oneMonthForwardFromChange = Calendar.current.date(byAdding: .month, value: 1, to: oneYearForward) ?? Date()
                 if oneMonthForwardFromChange > maxDate {
                     monthNextBtn.isHidden = true
                 }
-                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? Date()
+                let oneDayForwardFromChange = Calendar.current.date(byAdding: .day, value: 1, to: oneYearForward) ?? Date()
                 if oneDayForwardFromChange > maxDate {
                     dayNextBtn.isHidden = true
                 }
-                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate) ?? Date()
+                let oneYearForwardFromChange = Calendar.current.date(byAdding: .year, value: 1, to: oneYearForward) ?? Date()
                 if oneYearForwardFromChange > maxDate {
                     yearNextBtn.isHidden = true
                 }
